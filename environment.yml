@@ -1,0 +1,18 @@
+name: vinfast-damage
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - --index-url https://download.pytorch.org/whl/cu124
+      - torch==2.6.0+cu124
+      - torchvision==0.21.0+cu124
+      - --extra-index-url https://pypi.org/simple
+      - ultralytics==8.4.178
+      - opencv-python>=4.10
+      - pyyaml>=6.0
+      - requests>=2.32
+      - fastapi>=0.115
+      - uvicorn[standard]>=0.34
+      - python-multipart>=0.0.20

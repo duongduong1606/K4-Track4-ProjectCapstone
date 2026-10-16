@@ -1,0 +1,35 @@
+.venv/
+.conda/
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Local datasets and user-provided test images
+data/
+data-audit/
+test_cases/
+
+# Generated training artifacts and local model weights
+runs/
+models/*.pt
+models/*.onnx
+weights/
+Ultralytics/
+*.cache
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.engine
+
+# Generated visual evidence and runtime uploads
+reports/evidence/annotated/
+reports/evidence/ultralytics/
+uploads/
+outputs/
+
+# Local secrets and logs
+.env
+.env.*
+!.env.example
+*.log

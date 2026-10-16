@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#07111f" />
+    <title>VinInspect — Kiểm tra ngoại thất</title>
+    <meta name="description" content="Demo AI kiểm tra hư hỏng ngoại thất xe tại điểm tiếp nhận." />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="VinInspect">
+          <span class="brand-mark">V</span>
+          <span><strong>VIN</strong>INSPECT</span>
+        </a>
+        <div class="system-status"><span></span> Local AI · RTX 3060</div>
+      </header>
+
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Vehicle intake intelligence</p>
+          <h1>Kiểm tra ngoại thất.<br /><em>Trong một lần chụp.</em></h1>
+          <p class="lede">Tải ảnh xe lên để phát hiện trầy xước, móp, nứt vỡ và xác định chi tiết ngoại thất liên quan.</p>
+        </div>
+        <div class="model-chip">
+          <span>PIPELINE</span>
+          <strong>YOLO26n + Seg</strong>
+          <small>3 damage classes · 21 panels</small>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <div class="upload-column">
+          <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Chọn ảnh xe">
+            <input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp" hidden />
+            <div id="emptyState" class="empty-state">
+              <div class="scan-icon"><span></span></div>
+              <h2>Thả ảnh xe vào đây</h2>
+              <p>hoặc nhấn để chọn ảnh · JPG, PNG, WebP · tối đa 12 MB</p>
+            </div>
+            <img id="preview" alt="Ảnh xe được chọn" hidden />
+            <button id="changeImage" class="change-image" type="button" hidden>Đổi ảnh</button>
+          </div>
+
+          <div class="controls">
+            <label for="confidence">
+              <span>Ngưỡng phát hiện</span>
+              <output id="confidenceValue">20%</output>
+            </label>
+            <input id="confidence" type="range" min="5" max="70" value="20" step="5" />
+            <button id="diagnoseButton" class="primary-button" type="button" disabled>
+              <span class="button-label">Phân tích ngoại thất</span>
+              <span class="button-loader" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+
+        <aside class="results-panel" aria-live="polite">
+          <div class="results-heading">
+            <div>
+              <p class="eyebrow">Inspection report</p>
+              <h2>Kết quả chẩn đoán</h2>
+            </div>
+            <span id="resultCount" class="count-badge">—</span>
+          </div>
+
+          <div id="idleResult" class="idle-result">
+            <div class="radar"><i></i><i></i><i></i></div>
+            <p>Kết quả sẽ xuất hiện sau khi phân tích ảnh.</p>
+          </div>
+          <div id="errorResult" class="error-result" hidden></div>
+          <div id="diagnosisList" class="diagnosis-list" hidden></div>
+          <p id="disclaimer" class="disclaimer" hidden></p>
+        </aside>
+      </section>
+    </main>
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>

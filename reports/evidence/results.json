@@ -1,0 +1,356 @@
+{
+  "configuration": {
+    "confidence": 0.2,
+    "damage_model": "runs/damage/weights/best.pt",
+    "panel_model": "runs/panel/weights/best.pt",
+    "image_size": 640
+  },
+  "training": {
+    "damage": {
+      "epoch": 44,
+      "elapsed_seconds": 3147.79,
+      "metric": "metrics/mAP50-95(B)",
+      "metric_value": 0.23257,
+      "row": {
+        "time": 2526.88,
+        "train/box_loss": 1.61324,
+        "train/cls_loss": 2.1494,
+        "train/l1_loss": 0.01541,
+        "metrics/precision(B)": 0.51265,
+        "metrics/recall(B)": 0.40298,
+        "metrics/mAP50(B)": 0.39205,
+        "metrics/mAP50-95(B)": 0.23257,
+        "val/box_loss": 1.78076,
+        "val/cls_loss": 2.46841,
+        "val/l1_loss": 0.02217,
+        "lr/pg0": 0.000415,
+        "lr/pg1": 0.000415,
+        "lr/pg2": 0.000415
+      }
+    },
+    "panel": {
+      "epoch": 70,
+      "elapsed_seconds": 880.998,
+      "metric": "metrics/mAP50-95(M)",
+      "metric_value": 0.67138,
+      "row": {
+        "time": 692.514,
+        "train/box_loss": 0.78789,
+        "train/seg_loss": 1.01518,
+        "train/cls_loss": 0.66786,
+        "train/l1_loss": 0.00526,
+        "train/sem_loss": 0.69899,
+        "metrics/precision(B)": 0.84398,
+        "metrics/recall(B)": 0.8592,
+        "metrics/mAP50(B)": 0.88256,
+        "metrics/mAP50-95(B)": 0.71398,
+        "metrics/precision(M)": 0.86948,
+        "metrics/recall(M)": 0.84751,
+        "metrics/mAP50(M)": 0.88374,
+        "metrics/mAP50-95(M)": 0.67138,
+        "val/box_loss": 0.72998,
+        "val/seg_loss": 0.9654,
+        "val/cls_loss": 0.6991,
+        "val/l1_loss": 0.00726,
+        "val/sem_loss": 0.0,
+        "lr/pg0": 0.000127,
+        "lr/pg1": 0.000127,
+        "lr/pg2": 0.000127
+      }
+    }
+  },
+  "test_cases": [
+    {
+      "case": "01",
+      "file": "01.jpg",
+      "sha256": "1f577f130f1729675a48f6ae66d9566735ee86a5e22a9fd784049087e1c965bc",
+      "bytes": 1047806,
+      "image_size": {
+        "width": 1640,
+        "height": 922
+      },
+      "finding_count": 1,
+      "findings": [
+        {
+          "id": 1,
+          "damage": "dent",
+          "damage_vi": "Móp",
+          "confidence": 0.2574,
+          "panel": "hood",
+          "panel_vi": "Nắp capo",
+          "panel_match": 1.0,
+          "severity": "Nặng",
+          "action": "Kiểm tra sơn và cân nhắc sửa móp không sơn (PDR).",
+          "box": [
+            503,
+            169,
+            1219,
+            387
+          ]
+        }
+      ],
+      "annotated_local": "reports/evidence/annotated/01.jpg"
+    },
+    {
+      "case": "02",
+      "file": "02.jpg",
+      "sha256": "17bf6165bf063ed1a40ad37d1def481fe76309b70ab2ab13d3947d234c36068b",
+      "bytes": 14959,
+      "image_size": {
+        "width": 600,
+        "height": 400
+      },
+      "finding_count": 1,
+      "findings": [
+        {
+          "id": 1,
+          "damage": "scratch",
+          "damage_vi": "Trầy xước",
+          "confidence": 0.7442,
+          "panel": "front-bumper",
+          "panel_vi": "Cản trước",
+          "panel_match": 1.0,
+          "severity": "Nặng",
+          "action": "Kiểm tra độ sâu; đánh bóng nếu chỉ xước lớp bóng.",
+          "box": [
+            118,
+            75,
+            504,
+            308
+          ]
+        }
+      ],
+      "annotated_local": "reports/evidence/annotated/02.jpg"
+    },
+    {
+      "case": "03",
+      "file": "03.jpg",
+      "sha256": "23c3211be5583d06fbac24b4da12c81492c090b1acbccb3fd0300c99a0b475ef",
+      "bytes": 31063,
+      "image_size": {
+        "width": 415,
+        "height": 739
+      },
+      "finding_count": 2,
+      "findings": [
+        {
+          "id": 1,
+          "damage": "scratch",
+          "damage_vi": "Trầy xước",
+          "confidence": 0.2593,
+          "panel": "back-wheel",
+          "panel_vi": "Bánh sau",
+          "panel_match": 0.2075,
+          "severity": "Nặng",
+          "action": "Kiểm tra độ sâu; đánh bóng nếu chỉ xước lớp bóng.",
+          "box": [
+            62,
+            399,
+            309,
+            660
+          ]
+        },
+        {
+          "id": 2,
+          "damage": "scratch",
+          "damage_vi": "Trầy xước",
+          "confidence": 0.2086,
+          "panel": "back-wheel",
+          "panel_vi": "Bánh sau",
+          "panel_match": 0.1568,
+          "severity": "Nặng",
+          "action": "Kiểm tra độ sâu; đánh bóng nếu chỉ xước lớp bóng.",
+          "box": [
+            59,
+            330,
+            398,
+            697
+          ]
+        }
+      ],
+      "annotated_local": "reports/evidence/annotated/03.jpg"
+    },
+    {
+      "case": "04",
+      "file": "04.jpg",
+      "sha256": "308f5e2b6a669e814608cc57f2472b1c45fe2bef70cf76b46ee943a7cbb7af00",
+      "bytes": 18410,
+      "image_size": {
+        "width": 640,
+        "height": 480
+      },
+      "finding_count": 1,
+      "findings": [
+        {
+          "id": 1,
+          "damage": "scratch",
+          "damage_vi": "Trầy xước",
+          "confidence": 0.2947,
+          "panel": null,
+          "panel_vi": "Chưa xác định",
+          "panel_match": 0.0,
+          "severity": "Nhẹ",
+          "action": "Kiểm tra độ sâu; đánh bóng nếu chỉ xước lớp bóng.",
+          "box": [
+            110,
+            379,
+            179,
+            391
+          ]
+        }
+      ],
+      "annotated_local": "reports/evidence/annotated/04.jpg"
+    },
+    {
+      "case": "05",
+      "file": "05.jpg",
+      "sha256": "713af3c21b777f899535f1923bf538031acc75aafea738f2ed91441355677bdf",
+      "bytes": 46456,
+      "image_size": {
+        "width": 424,
+        "height": 724
+      },
+      "finding_count": 0,
+      "findings": [],
+      "annotated_local": "reports/evidence/annotated/05.jpg"
+    },
+    {
+      "case": "06",
+      "file": "06.jpg",
+      "sha256": "53d3c54225d6bf186a31a055ab0047d7693a2e4340e9e06f109f20cbdee3fba1",
+      "bytes": 43723,
+      "image_size": {
+        "width": 415,
+        "height": 739
+      },
+      "finding_count": 1,
+      "findings": [
+        {
+          "id": 1,
+          "damage": "dent",
+          "damage_vi": "Móp",
+          "confidence": 0.3078,
+          "panel": "back-bumper",
+          "panel_vi": "Cản sau",
+          "panel_match": 1.0,
+          "severity": "Trung bình",
+          "action": "Kiểm tra sơn và cân nhắc sửa móp không sơn (PDR).",
+          "box": [
+            106,
+            565,
+            299,
+            657
+          ]
+        }
+      ],
+      "annotated_local": "reports/evidence/annotated/06.jpg"
+    },
+    {
+      "case": "07",
+      "file": "07.jpg",
+      "sha256": "ac8273169cdbf684410fb9fbd291b3a85a1d821e9fb7ad7c6996ebbf17ae1cc4",
+      "bytes": 43981,
+      "image_size": {
+        "width": 479,
+        "height": 640
+      },
+      "finding_count": 0,
+      "findings": [],
+      "annotated_local": "reports/evidence/annotated/07.jpg"
+    },
+    {
+      "case": "08",
+      "file": "08.jpg",
+      "sha256": "439e7b013f4c727848d5dfbbc031885b8ef9a954fa5d815c59b6611ec69d0370",
+      "bytes": 253599,
+      "image_size": {
+        "width": 1200,
+        "height": 848
+      },
+      "finding_count": 0,
+      "findings": [],
+      "annotated_local": "reports/evidence/annotated/08.jpg"
+    },
+    {
+      "case": "09",
+      "file": "09.webp",
+      "sha256": "3f117dc7ee69c68b22a11517523900d365b324ecc98764105869f3ee83135d6f",
+      "bytes": 355684,
+      "image_size": {
+        "width": 1280,
+        "height": 960
+      },
+      "finding_count": 0,
+      "findings": [],
+      "annotated_local": "reports/evidence/annotated/09.jpg"
+    },
+    {
+      "case": "10",
+      "file": "10.jpg",
+      "sha256": "2d385748fb0d1810ce6259a5b31780ff5683b8f93285a5a864da597b1ced2607",
+      "bytes": 177456,
+      "image_size": {
+        "width": 800,
+        "height": 1067
+      },
+      "finding_count": 2,
+      "findings": [
+        {
+          "id": 1,
+          "damage": "scratch",
+          "damage_vi": "Trầy xước",
+          "confidence": 0.7572,
+          "panel": "back-bumper",
+          "panel_vi": "Cản sau",
+          "panel_match": 1.0,
+          "severity": "Trung bình",
+          "action": "Kiểm tra độ sâu; đánh bóng nếu chỉ xước lớp bóng.",
+          "box": [
+            401,
+            474,
+            691,
+            694
+          ]
+        },
+        {
+          "id": 2,
+          "damage": "dent",
+          "damage_vi": "Móp",
+          "confidence": 0.6329,
+          "panel": "quarter-panel",
+          "panel_vi": "Vè sau",
+          "panel_match": 1.0,
+          "severity": "Trung bình",
+          "action": "Kiểm tra sơn và cân nhắc sửa móp không sơn (PDR).",
+          "box": [
+            246,
+            434,
+            515,
+            568
+          ]
+        }
+      ],
+      "annotated_local": "reports/evidence/annotated/10.jpg"
+    }
+  ],
+  "evaluation": {
+    "damage_test": {
+      "metrics/precision(B)": 0.5035629134755185,
+      "metrics/recall(B)": 0.3786907454597605,
+      "metrics/mAP50(B)": 0.3829406777389301,
+      "metrics/mAP50-95(B)": 0.22228083182162564,
+      "fitness": 0.22228083182162564
+    },
+    "panel_test": {
+      "metrics/precision(B)": 0.7398018332316981,
+      "metrics/recall(B)": 0.39361311878233723,
+      "metrics/mAP50(B)": 0.43581815375506916,
+      "metrics/mAP50-95(B)": 0.30530762221561686,
+      "metrics/precision(M)": 0.7495140806630083,
+      "metrics/recall(M)": 0.3887308886675439,
+      "metrics/mAP50(M)": 0.4161659566998669,
+      "metrics/mAP50-95(M)": 0.27384166988400654,
+      "fitness": 0.5791492920996234
+    }
+  }
+}

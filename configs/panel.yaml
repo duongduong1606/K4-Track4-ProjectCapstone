@@ -1,0 +1,26 @@
+path: ../data-audit/cardamagepanel
+train: images/train
+val: images/val
+test: images/test
+names:
+  0: back-bumper
+  1: back-door
+  2: back-windshield
+  3: tail-light
+  4: front-bumper
+  5: front-door
+  6: windshield
+  7: headlight
+  8: hood
+  9: mirror
+  10: trunk
+  11: front-wheel
+  12: fender
+  13: quarter-panel
+  14: roof
+  15: front-window
+  16: back-window
+  17: rocker-panel
+  18: back-wheel
+  19: grille
+  20: license-plate
